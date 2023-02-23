@@ -19,6 +19,20 @@ def closestPair(List,n1):
         return distance(List[0],List[1])
     
     return
+
+def sortList(lst):
+    if len(lst) <= 1:
+        return lst
+    acuan = lst[0]
+    left = []
+    right = []
+    for i in lst[1:]:
+        if i.x < acuan.x:
+            left.append(i)
+        else:
+            right.append(i)
+    return sortList(left) + [acuan] + sortList(right)
+
 ListPoint=[]
 n=int(input("Masukkan Jumlah Titik : "))
 
@@ -28,6 +42,15 @@ for i in range(n) :
     z=random.randint(0,9)
     ListPoint.append(Point(x,y,z))
 
-print(closestPair(ListPoint,n))
-for i in range(n) :
+
+for i in range(n):
     print(ListPoint[i])
+
+#print(closestPair(ListPoint,n))
+#print(len(ListPoint))
+sortedList = sortList(ListPoint)
+
+
+for i in range(n) :
+    print(sortedList[i])
+
