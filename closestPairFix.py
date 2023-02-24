@@ -70,26 +70,26 @@ def findClosestPair(xSorted, ySorted):
             ySortedLeft.append(i)
         else:
             ySortedRight.append(i)
-    (leftClosestPair, leftMinDist) = findClosestPair(xLeft, ySortedLeft)
-    (rightClosestPair, rightMinDist) = findClosestPair(xRight, ySortedRight)
-    minDist = min(leftMinDist, rightMinDist)
-    betweenHalves = []
-    for i in ySorted:
-        if abs(i.x - middleXpoint.x) < minDist:
-            betweenHalves.append(i)
-    closestPairBetween = None
-    for i in range (len(betweenHalves)):
-        for j in range(i+1, min(i+7, len(betweenHalves))):
-            if distance(betweenHalves[i], betweenHalves[j]) < minDist:
-                minDist = distance(betweenHalves[i], betweenHalves[j])
-                closestPairBetween = (betweenHalves[i], betweenHalves[j])
-    if closestPairBetween is not None:
-        return closestPairBetween
-    if leftMinDist < rightMinDist:
-        return leftClosestPair
-    else:
-        return rightClosestPair
-
+    #code ini masih buggy, tapi jangan di delete dulu, kalo mau otak atik sok
+    # (leftClosestPair, leftMinDist) = findClosestPair(xLeft, ySortedLeft)
+    # (rightClosestPair, rightMinDist) = findClosestPair(xRight, ySortedRight)
+    # minDist = min(leftMinDist, rightMinDist)
+    # betweenHalves = []
+    # for i in ySorted:
+    #     if abs(i.x - middleXpoint.x) < minDist:
+    #         betweenHalves.append(i)
+    # closestPairBetween = None
+    # for i in range (len(betweenHalves)):
+    #     for j in range(i+1, min(i+7, len(betweenHalves))):
+    #         if distance(betweenHalves[i], betweenHalves[j]) < minDist:
+    #             minDist = distance(betweenHalves[i], betweenHalves[j])
+    #             closestPairBetween = (betweenHalves[i], betweenHalves[j])
+    # if closestPairBetween is not None:
+    #     return closestPairBetween
+    # if leftMinDist < rightMinDist:
+    #     return leftClosestPair
+    # else:
+    #     return rightClosestPair
 
 
 
@@ -117,9 +117,9 @@ for i in range(n) :
     print(sortedListX[i])
 
 
-(p1, p2) = findClosestPair(sortedListX, sortedListY)
-print(p1,p2)
-print(distance(p1,p2))
+# (p1, p2) = findClosestPair(sortedListX, sortedListY)
+# print(p1,p2)
+# print(distance(p1,p2))
 
 
 
