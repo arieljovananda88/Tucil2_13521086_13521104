@@ -10,7 +10,7 @@ class Point:
         return f'({self.x}, {self.y}, {self.z})'
 
 def distance(Point1,Point2):
-    return math.sqrt((Point2.x+Point1.x)**2 + (Point2.y+Point1.y)**2 + (Point2.z+Point1.z)**2)
+    return math.sqrt((Point2.x-Point1.x)**2 + (Point2.y-Point1.y)**2 + (Point2.z-Point1.z)**2)
 def bruteForce(List):
     n=len(List)
     min=float('inf')
