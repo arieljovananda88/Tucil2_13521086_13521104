@@ -10,7 +10,7 @@ class Point:
         return f'({self.x}, {self.y}, {self.z})'
 
 def distance(Point1,Point2):
-    return math.sqrt((Point2.x+Point1.x)**2 + (Point2.y+Point1.y)**2 + (Point2.z+Point1.z)**2)
+    return math.sqrt((Point2.x-Point1.x)**2 + (Point2.y-Point1.y)**2 + (Point2.z-Point1.z)**2)
 def bruteForce(List):
     n=len(List)
     min=float('inf')
@@ -35,7 +35,7 @@ def closestPairRec(List):
     midP=List[mid]
     
     left_p=List[:mid]
-    right_p=List[mid:]
+    right_p=List[mid+1:]
     
     min_l,cp_l=closestPairRec(left_p)   
     min_r,cp_r=closestPairRec(right_p)
@@ -57,6 +57,23 @@ def closestPairRec(List):
                 minP=tempMin
                 cp=[sorted[i],sorted[j]]
             j+=1
+            
+    # sortedZ=[]
+    # for point in sorted :
+    #     if abs(point.y-midP.y)<minP:
+    #         sortedZ.append(point)
+            
+    # sortedZ.sort(key=lambda p: p.z)
+    
+    # for i in range(len(sortedZ)):
+    #     j=j+1
+    #     while j < len(sortedZ) and sortedZ[j].z-sortedZ[i].z < minP :
+    #         tempMin2=distance(sortedZ[i],sortedZ[j])
+    #         if tempMin2 < minP :
+    #             minP=tempMin2
+    #             cp= [sortedZ[i],sortedZ[j]]
+    #         j+=1
+    
     return minP,cp
 
 def closestPair(List):
