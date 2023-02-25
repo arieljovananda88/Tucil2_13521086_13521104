@@ -1,5 +1,8 @@
 import math
 import random
+import time
+
+count=0
 class Point:
     def __init__(self, x, y, z):
         self.x = x
@@ -12,6 +15,7 @@ class Point:
 def distance(Point1,Point2):
     return math.sqrt((Point2.x-Point1.x)**2 + (Point2.y-Point1.y)**2 + (Point2.z-Point1.z)**2)
 def bruteForce(List):
+    global count
     n=len(List)
     min=float('inf')
     cp=None
@@ -19,6 +23,7 @@ def bruteForce(List):
     for i in range(n):
         for j in range(i+1,n):
             temp=distance(List[i],List[j])
+            count+=1
             if temp < min : 
                 min=temp
                 cp= [List[i],List[j]]
@@ -27,6 +32,7 @@ def bruteForce(List):
 
     
 def closestPairRec(List):
+    global count
     n=len(List)
     if n<=3 : 
         return bruteForce(List)
@@ -35,7 +41,7 @@ def closestPairRec(List):
     midP=List[mid]
     
     left_p=List[:mid]
-    right_p=List[mid+1:]
+    right_p=List[mid:]
     
     min_l,cp_l=closestPairRec(left_p)   
     min_r,cp_r=closestPairRec(right_p)
@@ -53,6 +59,7 @@ def closestPairRec(List):
         j=i+1
         while j < len(sorted) and sorted[j].y-sorted[i].y < minP :
             tempMin=distance(sorted[i],sorted[j])
+            count+=1
             if tempMin < minP:
                 minP=tempMin
                 cp=[sorted[i],sorted[j]]
@@ -83,16 +90,18 @@ def closestPair(List):
     
     return closestPairRec(List)
     
-    
 ListPoint=[]
 n=int(input("Masukkan Jumlah Titik : "))
+st = time.time()    
 
 for i in range(n) :
     x=random.uniform(0,100)
     y=random.uniform(0,100)
     z=random.uniform(0,100)
     ListPoint.append(Point(x,y,z))
-
 print(closestPair(ListPoint))
-for i in range(n) :
-    print(ListPoint[i])
+RunTime = time.time() - st
+print('Execution time:', RunTime, 'seconds') 
+print('EucDistance count :',count) 
+# for i in range(n) :
+#     print(ListPoint[i])
