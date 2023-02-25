@@ -88,9 +88,9 @@ ListPoint=[]
 n=int(input("Masukkan Jumlah Titik : "))
 
 for i in range(n) :
-    x=random.randint(0,9)
-    y=random.randint(0,9)
-    z=random.randint(0,9)
+    x=random.uniform(0,100)
+    y=random.uniform(0,100)
+    z=random.uniform(0,100)
     ListPoint.append(Point(x,y,z))
 
 print(closestPair(ListPoint))
