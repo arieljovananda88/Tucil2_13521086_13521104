@@ -1,8 +1,6 @@
 import math
-import random
-import time
 
-count=0
+count =0;
 class Point:
     def __init__(self, x, y, z):
         self.x = x
@@ -84,24 +82,10 @@ def closestPairRec(List):
     return minP,cp
 
 def closestPair(List):
+    global count
+    count=0
     if len(List)<2 :
         return None
     List.sort(key=lambda p: p.x)
     
     return closestPairRec(List)
-    
-ListPoint=[]
-n=int(input("Masukkan Jumlah Titik : "))
-st = time.time()    
-
-for i in range(n) :
-    x=random.uniform(0,100)
-    y=random.uniform(0,100)
-    z=random.uniform(0,100)
-    ListPoint.append(Point(x,y,z))
-print(closestPair(ListPoint))
-RunTime = time.time() - st
-print('Execution time:', RunTime, 'seconds') 
-print('EucDistance count :',count) 
-# for i in range(n) :
-#     print(ListPoint[i])
