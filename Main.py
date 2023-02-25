@@ -1,6 +1,7 @@
 import random
 import time
 import ClosestPair as cp
+import visualizer as vis
 
   
 ListPoint=[]
@@ -16,5 +17,6 @@ print(cp.closestPair(ListPoint))
 RunTime = time.time() - st
 print('Execution time:', RunTime, 'seconds') 
 print('EucDistance count :',cp.count) 
+vis.visualizer(ListPoint)
 # for i in range(n) :
 #     print(ListPoint[i])
