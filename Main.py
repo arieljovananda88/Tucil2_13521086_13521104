@@ -13,11 +13,11 @@ for i in range(n) :
     y=random.uniform(0,100)
     z=random.uniform(0,100)
     ListPoint.append(cp.Point(x,y,z))
-Result=   
-print(cp.closestPair(ListPoint))
+Result=cp.closestPair(ListPoint)   
+print(Result)
 RunTime = time.time() - st
 print('Execution time:', RunTime, 'seconds') 
 print('EucDistance count :',cp.count) 
-vis.visualizer(ListPoint)
+vis.visualizer(ListPoint,Result[1])
 # for i in range(n) :
 #     print(ListPoint[i])
