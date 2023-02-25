@@ -7,14 +7,14 @@ def visualizer(points, pair = None):
     xs = [p.x for p in points]
     ys = [p.y for p in points]
     zs = [p.z for p in points]
+    ax.scatter(xs, ys, zs)
     
     if pair:
         x_pair = [pair[0].x, pair[1].x]
         y_pair = [pair[0].y, pair[1].y]
         z_pair = [pair[0].z, pair[1].z]
-        ax.plot(x_pair, y_pair, z_pair, c='r')
+        ax.scatter(x_pair, y_pair, z_pair, c='black',s=100)
     
-    ax.scatter(xs, ys, zs)
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')

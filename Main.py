@@ -13,6 +13,7 @@ for i in range(n) :
     y=random.uniform(0,100)
     z=random.uniform(0,100)
     ListPoint.append(cp.Point(x,y,z))
+Result=   
 print(cp.closestPair(ListPoint))
 RunTime = time.time() - st
 print('Execution time:', RunTime, 'seconds') 
