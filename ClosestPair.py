@@ -1,7 +1,7 @@
 import math
 
-count =0;
-class Point:
+count =0; #global variable
+class Point: #class point (x,y,z)
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
@@ -10,10 +10,10 @@ class Point:
     def __repr__(self):
         return f'({self.x}, {self.y}, {self.z})'
 
-def distance(Point1,Point2):
+def distance(Point1,Point2): #Algoritma euclidean distance
     return math.sqrt((Point2.x-Point1.x)**2 + (Point2.y-Point1.y)**2 + (Point2.z-Point1.z)**2)
 
-def bruteForce(List):
+def bruteForce(List): #Algoritma brute force
     global count
     n=len(List)
     min=float('inf')
@@ -28,7 +28,7 @@ def bruteForce(List):
                 cp= [List[i],List[j]]
     return min , cp 
 
-def sortList(lst):
+def sortList(lst): #Algoritma Untuk Melakukan Sorting List
     if len(lst) <= 1:
         return lst
     acuan = lst[0]
@@ -39,11 +39,11 @@ def sortList(lst):
             left.append(i)
         else:
             right.append(i)
-    return sortListY(left) + [acuan] + sortListY(right)   
+    return sortList(left) + [acuan] + sortList(right)   
         
 
     
-def closestPairRec(List):
+def closestPairRec(List): #Algoritma closestPair Rekursif
     global count
     n=len(List)
     if n<=3 : 
@@ -65,11 +65,11 @@ def closestPairRec(List):
         if abs(point.x-midP.x)<minP :
             unsorted.append(point)
     
-    sorted = sortListY(unsorted)
+    sorted = sortList(unsorted)
     
     for i in range(len(sorted)):
         j=i+1
-        while j < len(sorted) and sorted[j].y-sorted[i].y < minP :
+        while j < len(sorted) and sorted[j].y-sorted[i].y < minP : #Syarat yang dapat mengurangi jumlah total perhitungan euclidean distance
             tempMin=distance(sorted[i],sorted[j])
             count+=1
             if tempMin < minP:
@@ -77,25 +77,11 @@ def closestPairRec(List):
                 cp=[sorted[i],sorted[j]]
             j+=1
             
-    # sortedZ=[]
-    # for point in sorted :
-    #     if abs(point.y-midP.y)<minP:
-    #         sortedZ.append(point)
-            
-    # sortedZ.sort(key=lambda p: p.z)
-    
-    # for i in range(len(sortedZ)):
-    #     j=j+1
-    #     while j < len(sortedZ) and sortedZ[j].z-sortedZ[i].z < minP :
-    #         tempMin2=distance(sortedZ[i],sortedZ[j])
-    #         if tempMin2 < minP :
-    #             minP=tempMin2
-    #             cp= [sortedZ[i],sortedZ[j]]
-    #         j+=1
+
     
     return minP,cp
 
-def closestPair(List):
+def closestPair(List): #Algoritma closestPair
     global count
     count=0
     if len(List)<2 :
