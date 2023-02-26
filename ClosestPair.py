@@ -12,6 +12,7 @@ class Point:
 
 def distance(Point1,Point2):
     return math.sqrt((Point2.x-Point1.x)**2 + (Point2.y-Point1.y)**2 + (Point2.z-Point1.z)**2)
+
 def bruteForce(List):
     global count
     n=len(List)
@@ -25,7 +26,20 @@ def bruteForce(List):
             if temp < min : 
                 min=temp
                 cp= [List[i],List[j]]
-    return min , cp            
+    return min , cp 
+
+def sortListY(lst):
+    if len(lst) <= 1:
+        return lst
+    acuan = lst[0]
+    left = []
+    right = []
+    for i in lst[1:]:
+        if i.y < acuan.y:
+            left.append(i)
+        else:
+            right.append(i)
+    return sortListY(left) + [acuan] + sortListY(right)   
         
 
     
@@ -46,12 +60,12 @@ def closestPairRec(List):
     
     minP=min(min_l,min_r)
     cp=cp_r if min_r<min_l else cp_l
-    sorted=[]
+    unsorted=[]
     for point in List:
         if abs(point.x-midP.x)<minP :
-            sorted.append(point)
+            unsorted.append(point)
     
-    sorted.sort(key=lambda p:p.y)
+    sorted = sortListY(unsorted)
     
     for i in range(len(sorted)):
         j=i+1
