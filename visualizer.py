@@ -13,7 +13,7 @@ def visualizer(points, pair):
         x_pair = [pair[0].x, pair[1].x]
         y_pair = [pair[0].y, pair[1].y]
         z_pair = [pair[0].z, pair[1].z]
-        ax.scatter(x_pair, y_pair, z_pair, c='black',s=100)
+        ax.scatter(x_pair, y_pair, z_pair, c='red',s=80)
     
     ax.set_xlabel('X')
     ax.set_ylabel('Y')

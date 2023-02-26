@@ -15,9 +15,9 @@ for i in range(n) :
     ListPoint.append(cp.Point(x,y,z))
 Result=cp.closestPair(ListPoint)   
 print(Result)
-RunTime = time.time() - st
-print('Execution time:', RunTime, 'seconds') 
 print('EucDistance count :',cp.count) 
+RunTime = (time.time() - st)
+print('Execution time:', RunTime, 'seconds') 
 vis.visualizer(ListPoint,Result[1])
 # for i in range(n) :
 #     print(ListPoint[i])
