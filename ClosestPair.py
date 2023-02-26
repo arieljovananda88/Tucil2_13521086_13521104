@@ -28,7 +28,7 @@ def bruteForce(List):
                 cp= [List[i],List[j]]
     return min , cp 
 
-def sortListY(lst):
+def sortList(lst):
     if len(lst) <= 1:
         return lst
     acuan = lst[0]
@@ -100,6 +100,6 @@ def closestPair(List):
     count=0
     if len(List)<2 :
         return None
-    List=sortListY(List)
+    List=sortList(List)
     
     return closestPairRec(List)
