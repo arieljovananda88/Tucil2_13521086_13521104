@@ -30,7 +30,7 @@ def main():
     print(Result)
     print('EuclideanDistance count\t:',cp.count) 
     RunTime = (time.time() - st)
-    print('Execution time\t\t:', RunTime, 'seconds') 
+    print('Execution time\t\t:', RunTime, 'seconds',"(ROG-G513qr)") 
     vis.visualizer(ListPoint,Result[1])
     # for i in range(n) :
     #     print(ListPoint[i])
