@@ -1,4 +1,5 @@
 import math
+import random
 
 count =0; #global variable
 class Point: #class point (x,y,z)
@@ -10,10 +11,31 @@ class Point: #class point (x,y,z)
     def __repr__(self):
         return f'({self.x}, {self.y}, {self.z})'
 
-def distance(Point1,Point2): #Algoritma euclidean distance
-    return math.sqrt((Point2.x-Point1.x)**2 + (Point2.y-Point1.y)**2 + (Point2.z-Point1.z)**2)
+def generatePoints(row, col):
+    matrix = [[random.uniform(0,100) for j in range(col)] for i in range(row)]
+    return matrix
 
-def bruteForce(List): #Algoritma brute force
+def distance(point1, point2):
+    sum = 0
+    for i in range(len(point1)):
+        sum += ((point1[i] - point2[i]) ** 2)
+    result = math.sqrt(sum)
+    return result
+
+def sortList(mat, axis):
+    if len(mat) <= 1:
+        return mat
+    acuan = mat[0]
+    left = []
+    right = []
+    for i in mat[1:]:
+        if i[axis] < acuan[axis]:
+            left.append(i)
+        else:
+            right.append(i)
+    return sortList(left,axis) + [acuan] + sortList(right,axis)
+
+def bruteForce(List):
     global count
     n=len(List)
     min=float('inf')
@@ -28,22 +50,7 @@ def bruteForce(List): #Algoritma brute force
                 cp= [List[i],List[j]]
     return min , cp 
 
-def sortList(lst): #Algoritma Untuk Melakukan Sorting List
-    if len(lst) <= 1:
-        return lst
-    acuan = lst[0]
-    left = []
-    right = []
-    for i in lst[1:]:
-        if i.y < acuan.y:
-            left.append(i)
-        else:
-            right.append(i)
-    return sortList(left) + [acuan] + sortList(right)   
-        
-
-    
-def closestPairRec(List): #Algoritma closestPair Rekursif
+def closestPairRec(List):
     global count
     n=len(List)
     if n<=3 : 
@@ -62,30 +69,44 @@ def closestPairRec(List): #Algoritma closestPair Rekursif
     cp=cp_r if min_r<min_l else cp_l
     unsorted=[]
     for point in List:
-        if abs(point.x-midP.x)<minP :
+        if abs(point[0] - midP[0])<minP :
             unsorted.append(point)
     
-    sorted = sortList(unsorted)
+    sorted = sortList(unsorted, 1)
     
     for i in range(len(sorted)):
         j=i+1
-        while j < len(sorted) and sorted[j].y-sorted[i].y < minP : #Syarat yang dapat mengurangi jumlah total perhitungan euclidean distance
+        while j < len(sorted) and sorted[j][1]-sorted[i][1] < minP :
             tempMin=distance(sorted[i],sorted[j])
-            count+=1
+            count += 1
             if tempMin < minP:
                 minP=tempMin
                 cp=[sorted[i],sorted[j]]
             j+=1
             
-
+    # sortedZ=[]
+    # for point in sorted :
+    #     if abs(point.y-midP.y)<minP:
+    #         sortedZ.append(point)
+            
+    # sortedZ.sort(key=lambda p: p.z)
+    
+    # for i in range(len(sortedZ)):
+    #     j=j+1
+    #     while j < len(sortedZ) and sortedZ[j].z-sortedZ[i].z < minP :
+    #         tempMin2=distance(sortedZ[i],sortedZ[j])
+    #         if tempMin2 < minP :
+    #             minP=tempMin2
+    #             cp= [sortedZ[i],sortedZ[j]]
+    #         j+=1
     
     return minP,cp
 
-def closestPair(List): #Algoritma closestPair
+def closestPair(List):
     global count
-    count=0
+    count = 0
     if len(List)<2 :
         return None
-    List=sortList(List)
+    sorted = sortList(List, 0)
     
-    return closestPairRec(List)
+    return closestPairRec(sorted)
