@@ -100,6 +100,6 @@ def closestPair(List):
     count=0
     if len(List)<2 :
         return None
-    List.sort(key=lambda p: p.x)
+    List=sortListY(List)
     
     return closestPairRec(List)
