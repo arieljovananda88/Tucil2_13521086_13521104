@@ -4,6 +4,7 @@ import ClosestPair as cp
 import visualizer as vis
 from colorama import Fore
 def main():
+    #SplashScreen
     print(f"""{Fore.GREEN}
      ██████╗██╗      ██████╗ ███████╗███████╗███████╗████████╗    ██████╗  █████╗ ██╗██████╗     ██████╗       ██████╗ 
     ██╔════╝██║     ██╔═══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝    ██╔══██╗██╔══██╗██║██╔══██╗    ╚════██╗      ██╔══██╗
@@ -19,6 +20,7 @@ def main():
     n=int(input("Masukkan Jumlah Titik\t: "))
     st = time.time()    
 
+    #generate random point
     for i in range(n) :
         x=random.uniform(0,100)
         y=random.uniform(0,100)
