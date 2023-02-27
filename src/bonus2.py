@@ -77,21 +77,6 @@ def closestPairRec(List):
                 cp=[sorted[i],sorted[j]]
             j+=1
             
-    # sortedZ=[]
-    # for point in sorted :
-    #     if abs(point.y-midP.y)<minP:
-    #         sortedZ.append(point)
-            
-    # sortedZ.sort(key=lambda p: p.z)
-    
-    # for i in range(len(sortedZ)):
-    #     j=j+1
-    #     while j < len(sortedZ) and sortedZ[j].z-sortedZ[i].z < minP :
-    #         tempMin2=distance(sortedZ[i],sortedZ[j])
-    #         if tempMin2 < minP :
-    #             minP=tempMin2
-    #             cp= [sortedZ[i],sortedZ[j]]
-    #         j+=1
     
     return minP,cp
 
@@ -138,20 +123,3 @@ else:
     Result = closestPair(ListPoint)   
     print(Result)
     print('EucDistance count :', count) 
-# RunTime = (time.time() - st)
-# print('Execution time:', RunTime, 'seconds') 
-# vis.visualizer(ListPoint,Result[1])
-
-# matrix = generatePoints(3,4)
-# for i in range(len(matrix)):
-#     print(matrix[i])
-# sortedMat = sortList(matrix,0)
-# for i in range(len(matrix)):
-#     print(sortedMat[i])
-
-
-
-
-# matrix = generatePoints(5,5)
-# print(matrix[0], matrix[1])
-# print(distance(matrix[0], matrix[1]))
