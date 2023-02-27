@@ -12,7 +12,7 @@ class Point: #class point (x,y,z)
         return f'({self.x}, {self.y}, {self.z})'
 
 def generatePoints(row, col):
-    matrix = [[random.uniform(0,100) for j in range(col)] for i in range(row)]
+    matrix = [[random.uniform(-1000,1000) for j in range(col)] for i in range(row)]
     return matrix
 
 def distance(point1, point2):

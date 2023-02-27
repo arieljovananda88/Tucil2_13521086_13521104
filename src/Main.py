@@ -22,8 +22,17 @@ def main():
     row = int(input("Masukkan jumlah point\t: "))
     col = int(input("Masukkan dimensi\t: "))
     if col == 3:
-        st = time.time() 
+        stbf = time.time()
         ListPoint = cp.generatePoints(row,col)
+        print(f"{Fore.RED}Pure Brute Force{Fore.WHITE}")
+        Result1 = cp.bruteForce(ListPoint)
+        print(Result1)
+        print('EucDistance count\t:', cp.count)
+        RunTime1 = (time.time() - stbf)
+        print('Execution time\t\t:', RunTime1, 'seconds',"(ROG-G513qr)") 
+        print(f"{Fore.RED}Divide and Conqeur{Fore.WHITE}")
+        st = time.time()
+        cp.count = 0
         Result = cp.closestPair(ListPoint)   
         print(Result)
         print('EucDistance count\t:', cp.count)
@@ -35,13 +44,22 @@ def main():
         else:
             return 0
     else:
-        st = time.time() 
+        stbf = time.time()
         ListPoint = cp.generatePoints(row,col)
+        print(f"{Fore.RED}Pure Brute Force{Fore.WHITE}")
+        Result1 = cp.bruteForce(ListPoint)
+        print(Result1)
+        print('EucDistance count\t:', cp.count)
+        RunTime1 = (time.time() - stbf)
+        print('Execution time\t\t:', RunTime1, 'seconds',"(ROG-G513qr)") 
+        print(f"{Fore.RED}Divide and Conqeur{Fore.WHITE}")
+        st = time.time()
+        cp.count = 0
         Result = cp.closestPair(ListPoint)   
         print(Result)
-        print('EucDistance count\t:', cp.count) 
+        print('EucDistance count\t:', cp.count)
         RunTime = (time.time() - st)
-        print('Execution time\t\t:', RunTime, 'seconds',"(ROG-G513qr)") 
+        print('Execution time\t\t:', RunTime, 'seconds',"(ROG-G513qr)")  
         return 0
         
 main()
