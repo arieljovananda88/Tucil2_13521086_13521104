@@ -19,14 +19,14 @@ def main():
     input(f"Press {Fore.RED}Enter{Fore.WHITE} to start...\n")   
 
     #generate random point
-    row = int(input("Masukkan jumlah point: "))
-    col = int(input("Masukkan dimensi: "))
+    row = int(input("Masukkan jumlah point\t: "))
+    col = int(input("Masukkan dimensi\t: "))
     if col == 3:
         st = time.time() 
         ListPoint = cp.generatePoints(row,col)
         Result = cp.closestPair(ListPoint)   
         print(Result)
-        print('EucDistance count :', cp.count)
+        print('EucDistance count\t:', cp.count)
         RunTime = (time.time() - st)
         print('Execution time\t\t:', RunTime, 'seconds',"(ROG-G513qr)") 
         pil = str(input("Apakah ingin divisualisasikan? \nTekan tombol selain Y/y jika tidak\n"))
@@ -39,7 +39,7 @@ def main():
         ListPoint = cp.generatePoints(row,col)
         Result = cp.closestPair(ListPoint)   
         print(Result)
-        print('EucDistance count :', cp.count) 
+        print('EucDistance count\t:', cp.count) 
         RunTime = (time.time() - st)
         print('Execution time\t\t:', RunTime, 'seconds',"(ROG-G513qr)") 
         return 0
