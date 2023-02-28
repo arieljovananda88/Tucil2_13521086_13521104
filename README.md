@@ -23,7 +23,7 @@ $  python Main.py or python3 Main.py
 ```
 
 ### Usage
-The user will be given two choices, one is to prompt four integers or let the program generate its own random four integers when the software is executed. Once all conceivable combinations of these integers have been generated, the computer will employ a series of mathematical operations to determine a solution for each combination. In addition to providing the ability to save the solutions to a text file, the application will output all solutions and execution time in a human-readable format.
+The user will be given two inputs, which are the number of points that want to be generated and the number of dimensions of the points. Once its done, the program will apply both the brute force algorithm and the divide and conqeur algorithm to produce the results. The output will be the comparison between both algorithms.
 
 ## Repository Structure
 ```
