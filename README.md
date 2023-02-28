@@ -46,8 +46,8 @@ The user will be given two inputs, which are the number of points that want to b
        
 ```
 ## Author
-[Ariel Jovananda / 13521086](https://github.com/arieljovananda88)
-[Muhammad Zaydan A / 13521104](https://github.com/zaydanA)
+1. [Ariel Jovananda / 13521086](https://github.com/arieljovananda88)
+2. [Muhammad Zaydan A / 13521104](https://github.com/zaydanA)
 
 ## Made with
 Python
