@@ -41,6 +41,7 @@ The user will be given two inputs, which are the number of points that want to b
 │       │ Main.py
 │       │ visualizer.py
 │
+│─── .DS_Store
 ├─── README.MD
        
 ```
